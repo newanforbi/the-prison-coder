@@ -1,0 +1,183 @@
+/* ── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-bg:        #0d0d0d;
+  --clr-surface:   #141414;
+  --clr-border:    #2a2a2a;
+  --clr-text:      #e8e6e1;
+  --clr-muted:     #888580;
+  --clr-accent:    #c9a84c;      /* warm gold — pencil/paper feel */
+  --clr-accent-dk: #a8893a;
+
+  --ff-sans:  'Segoe UI', system-ui, -apple-system, sans-serif;
+  --ff-serif: Georgia, 'Times New Roman', serif;
+
+  --radius:  6px;
+  --shadow:  0 4px 24px rgba(0,0,0,.55);
+
+  --max-w:   640px;
+}
+
+html {
+  font-size: 16px;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--ff-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+body {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: var(--max-w);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.site-header {
+  text-align: center;
+}
+
+.lock-icon {
+  font-size: 2.25rem;
+  color: var(--clr-accent);
+  line-height: 1;
+  margin-bottom: .75rem;
+  display: block;
+  letter-spacing: 0;
+}
+
+.site-header h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.tagline {
+  margin-top: .5rem;
+  font-size: .95rem;
+  color: var(--clr-accent);
+  font-style: italic;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+/* ── Main content ─────────────────────────────────────────── */
+.content {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: var(--clr-text);
+  text-align: center;
+  max-width: 52ch;
+  margin-inline: auto;
+  line-height: 1.75;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: .875rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  padding: .9rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .18s ease, color .18s ease, transform .12s ease,
+              box-shadow .18s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: scale(.97);
+}
+
+/* Primary */
+.btn--primary {
+  background: var(--clr-accent);
+  color: #0d0d0d;
+  box-shadow: 0 2px 12px rgba(201,168,76,.25);
+}
+
+.btn--primary:hover {
+  background: #dbbf6a;
+  box-shadow: 0 4px 18px rgba(201,168,76,.4);
+}
+
+/* Secondary */
+.btn--secondary {
+  background: transparent;
+  color: var(--clr-accent);
+  border: 1.5px solid var(--clr-accent);
+}
+
+.btn--secondary:hover {
+  background: rgba(201,168,76,.08);
+  border-color: #dbbf6a;
+  color: #dbbf6a;
+}
+
+.btn__arrow {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.site-footer {
+  text-align: center;
+  font-size: .8rem;
+  color: var(--clr-muted);
+}
+
+/* ── Responsive: wider screens ────────────────────────────── */
+@media (min-width: 480px) {
+  .btn-group {
+    flex-direction: row;
+  }
+
+  .btn {
+    flex: 1;
+  }
+}
