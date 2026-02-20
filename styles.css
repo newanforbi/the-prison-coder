@@ -23,6 +23,17 @@
   --max-w:   640px;
 }
 
+[data-theme="light"] {
+  --clr-bg:        #f5f2ec;
+  --clr-surface:   #ffffff;
+  --clr-border:    #ddd9d0;
+  --clr-text:      #1a1a1a;
+  --clr-muted:     #888580;
+  --clr-accent:    #a8893a;
+  --clr-accent-dk: #8a7030;
+  --shadow:        0 4px 24px rgba(0,0,0,.10);
+}
+
 html {
   font-size: 16px;
   background: var(--clr-bg);
@@ -68,7 +79,7 @@ body {
   font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 700;
   letter-spacing: -.02em;
-  color: #fff;
+  color: var(--clr-text);
   line-height: 1.15;
 }
 
@@ -170,6 +181,29 @@ body {
 .btn__arrow {
   font-size: 1.1em;
   line-height: 1;
+}
+
+/* ── Theme toggle ─────────────────────────────────────────── */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .18s ease, border-color .18s ease;
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  background: var(--clr-border);
 }
 
 /* ── Footer ───────────────────────────────────────────────── */
